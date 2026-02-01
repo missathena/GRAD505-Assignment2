@@ -22,11 +22,11 @@ plt.show()
 mean = np.mean(width)
 mean = np.round(mean,1)
 median = np.median(width)
-print(f"mean: {mean} median: {median}")
+print(f"1c: mean: {mean} median: {median}")
 
 #1d
 percentile27 = np.percentile(width,[27])
-print(f"percentile27: {percentile27}")
+print(f"1d: percentile27: {percentile27}")
 
 #1e.
 sns.scatterplot(data=iris_data,x=iris_data["sepal length (cm)"], y=iris_data["sepal width (cm)"], hue=iris_data["species"])
@@ -78,4 +78,9 @@ trt2_min = trt2['weight'].min()
 print(trt2_min)
 less_than = pd.DataFrame(trt1[trt1["weight"] < trt2_min])
 less_than_percent = (less_than.count()/trt1.count())*100
-print(less_than_percent)
+print(f"1d: {less_than_percent}")
+
+#2e
+groups = PlantGrowth[PlantGrowth["weight"] > 5.5][["group"]]
+sns.countplot(data=groups,x="group",y=None,hue="group",palette="pastel")
+plt.show()
